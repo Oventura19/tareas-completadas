@@ -32,7 +32,16 @@ class App extends Component {
     })
   }
   
-  
+  handleSubmit = (event) => {
+    if (this.state.newTask !== "") {
+      var taskId = this.state.tasks.length + 1
+      this.setState({
+        tasks: this.state.tasks.concat({ id: taskId, name: this.state.newTask, done: false }),
+        newTask: "",
+      })
+    }
+    event.preventDefault();
+  }
 
   render() {
     return (
